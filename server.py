@@ -1,7 +1,7 @@
 from socket import socket, AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM
 from keyboard import is_pressed
 from ManageData import EncryptData
-from config import serverMACAddress, port
+from config import serverMACAddress, port, wheelAxis, pedalAxis
 import pygame
 s = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM)
 pygame.init()
@@ -29,7 +29,7 @@ try:
             if event == pygame.QUIT:
                 run = False
         # gets wheel and pedals data
-        wheel, pedals = joy.get_axis(0),joy.get_axis(3)
+        wheel, pedals = joy.get_axis(pedalAxis),joy.get_axis(wheelAxis)
         data = f'{wheel} {pedals}'
         clientSocket.send(EncryptData(data))
         status = bool(clientSocket.recv(1024))

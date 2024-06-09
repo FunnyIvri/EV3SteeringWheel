@@ -34,6 +34,7 @@ for i in range(joy.get_numaxes()):
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
                         run = False
+sleep(1)
 print('STEP 2')
 print('wheel Sensitvity goes from 100 to 0, 100 meaning you can do a 360, 0 meaning you cant steer')
 wheelSensitivty = input('ENTER WHEEL SENSITVITY: ')
@@ -57,7 +58,7 @@ elif userOS == 'mac':
     print('look online on how to get your blueTooth adapter address')
     bluetoothAddress = input('if you succeded then enter it here:\n')
 else: print('ERROR OS NOT FOUND')
-finalConfig = f'wheelSensitivity = {wheelSensitivty} # the sensitivity of the wheel maximum 100 for up to 360 turn\npedalsSensitivity = {pedalSensitivty} # the sensitivity of the pedals maximum 100 for up to max speed\nport = {4} # the port of the server\nserverMACAddress = "{bluetoothAddress}" # the Address the server will run on'
+finalConfig = f'wheelAxis = {wheel_axis_id}\npedalAxis = {pedal_axis_id}\nwheelSensitivity = {wheelSensitivty} # the sensitivity of the wheel maximum 100 for up to 360 turn\npedalsSensitivity = {pedalSensitivty} # the sensitivity of the pedals maximum 100 for up to max speed\nport = {4} # the port of the server\nserverMACAddress = "{bluetoothAddress}" # the Address the server will run on'
 config = open('config.py', 'w')
 config.write(finalConfig)
 config.close()

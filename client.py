@@ -15,12 +15,14 @@ try:
     print('client ready')
     while True:
         #gets data
+        print('AHH')
         data = DecryptData(client.recv(1024))
         # checks for quit
         if str(data[0]) == "q":
             client.send(str(False).encode('utf-8'))
             break # stops program when reciving q
         else:
+            print(data)
             if abs(data[0]) > 0.1 or data[0]: # dead zone
                 steering = data[0] * wheelSensitivity
             else: steering = 0
