@@ -1,4 +1,4 @@
-# EV3SteeringWheel
+# EV3SteeringWheel THIS IS VERY OLD AND BUGGY
  welcome this is an app designed to allow you to control an ev3 robot running ev3dev using a steering wheel
 ## Step 1:
  make sure your steering wheel is compatible
